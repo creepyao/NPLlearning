@@ -24,10 +24,22 @@ modals = ['can', 'could', 'may', 'might', 'must', 'will']
 for m in modals:
     print m + ':', fdist[m], 
 '''
-
+'''
 cfd = nltk.ConditionalFreqDist((genre, word)
                                for genre in brown.categories()
                                for word in brown.words(categories=genre))
 genres = ['news', 'religion', 'hobbies', 'science_fiction', 'romance', 'humor']
 modals = ['can', 'could', 'may', 'might', 'must', 'will']
 cfd.tabulate(conditions=genres, samples=modals)
+'''
+
+
+def generage_model(cfdist, word, num=15):
+    for i in range(num):
+        print(word),
+        word = cfdist[word].max()
+text = nltk.corpus.genesis.words('english-kjv.txt')
+bigrams = nltk.bigrams(text)
+cfd = nltk.ConditionalFreqDist(bigrams)
+print(cfd['living'])
+generage_model(cfd, 'living')

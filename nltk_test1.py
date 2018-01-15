@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 from __future__ import division
 from nltk.corpus import gutenberg
 from nltk import FreqDist
